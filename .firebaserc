@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "finmarkets-login": {
+      "hosting": {
+        "loginAngular": [
+          "finmarkets-login"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "finmarkets-login"
+  }
+}
