@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   formLogin: FormGroup;
   constructor(
     private router: Router,
-    private userService: AuthenticationService
+    private userService: AuthenticationService,
   ) {
     this.formLogin = new FormGroup({
       email: new FormControl(),
@@ -25,9 +25,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService.login(this.formLogin.value)
       .then((response: any) => {
-        console.log(response);
+        this.router.navigate(['/userList']);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        //FALTA MANEJAR EL ERROR
+        console.log(error)
+      });
   }
 
   navigateToNewUserView() {

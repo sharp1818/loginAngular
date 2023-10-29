@@ -30,10 +30,14 @@ export class NewUserComponent implements OnInit {
   onSubmit() {
     this.userService.signUp(this.formReg.value)
       .then((response: any) => {
-        console.log(response);
-
+        this.router.navigate(['/login']);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        //FALTA MANEJAR EL ERROR
+        console.log(error.message)
+      
+      }
+      );
   }
 
   navigateToLogin() {

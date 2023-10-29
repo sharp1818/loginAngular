@@ -3,7 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthenticationService } from 'src/app/services/authentication.services';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -15,12 +15,13 @@ import { RouterModule } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   constructor(
+    private router: Router,
     private userService: AuthenticationService
   ) { }
   logout() {
     this.userService.logout()
       .then((response: any) => {
-        //FALTA AGREGAR NAVIGATE Y LOCALSTORAGE
+        this.router.navigate(['/login']);
       })
       .catch(error => {
 
