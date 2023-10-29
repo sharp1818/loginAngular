@@ -14,22 +14,22 @@ export class AuthenticationService {
         private auth: Auth,
         private firestore: Firestore
     ) {
-        onAuthStateChanged(this.auth, (user) => {
-            this.user = user; 
+        onAuthStateChanged(this.auth, (user: any) => {
+            this.user = user;
         });
     }
 
-    async signUp({name, rut, email, password }: any): Promise<User> {
+    async signUp({ name, rut, email, password }: any): Promise<User> {
         try {
             const response = await createUserWithEmailAndPassword(this.auth, email, password);
-            this.addUser(name, rut, email,response.user.uid)
+            this.addUser(name, rut, email, response.user.uid)
             return response.user;
         } catch (error) {
             throw error;
         }
     }
 
-    async login({ email, password }: any): Promise<User> {
+    async login({ email, password }: any): Promise<any> {
         try {
             const response = await signInWithEmailAndPassword(this.auth, email, password);
             return response.user;
@@ -53,7 +53,7 @@ export class AuthenticationService {
                 rut: rut,
                 email: email,
             };
-            const docRef = await doc(collection(this.firestore, 'users'), uid)            
+            const docRef = await doc(collection(this.firestore, 'users'), uid)
             await setDoc(docRef, additionalUserInfo, { merge: true })
 
         } catch (error) {

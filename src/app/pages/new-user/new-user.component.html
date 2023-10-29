@@ -1,20 +1,23 @@
-<h2>Registro de usuario</h2>
-<form [formGroup]="formReg" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-        <label class="form-label">Nombre</label>
-        <input type="text" class="form-control" formControlName="name">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Rut</label>
-        <input type="text" class="form-control" formControlName="rut">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-control" formControlName="email">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-control" formControlName="password">
-    </div>
-    <input type="submit" value="Enviar">
-</form>
+<div class="newUserContainer">
+    <mat-list-item class="title">Registro de usuario</mat-list-item>
+    <form [formGroup]="formReg" (ngSubmit)="onSubmit()" class="formContainer">
+        <mat-form-field class="mb-3">
+            <mat-label class="form-label">Nombre</mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+            <mat-label class="form-label">Rut</mat-label>
+            <input matInput type="text" formControlName="rut">
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+            <mat-label class="form-label">Email</mat-label>
+            <input matInput type="email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+            <mat-label class="form-label">Password</mat-label>
+            <input matInput type="password" formControlName="password">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Crear usuario</button>
+    </form>
+    <button mat-stroked-button (click)="navigateToLogin()">Volver al login</button>
+</div>

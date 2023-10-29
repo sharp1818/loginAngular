@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-// import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './component/nav/nav.component';
@@ -18,6 +16,10 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 import { AuthenticationService } from './services/authentication.services';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TablePaginationComponent } from './component/table-pagination/table-pagination.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,10 @@ import { TablePaginationComponent } from './component/table-pagination/table-pag
     TablePaginationComponent,
     BrowserModule,
     AppRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatListModule,
     provideFirebaseApp(() => initializeApp({
       "projectId": "finmarkets-login",
       "appId": "1:23433445492:web:711cad9e498fa1e4291121", 
@@ -44,8 +50,6 @@ import { TablePaginationComponent } from './component/table-pagination/table-pag
     provideFirestore(() => getFirestore()),
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    // AngularFireAuthModule,
-    // AngularFirestoreModule,
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]

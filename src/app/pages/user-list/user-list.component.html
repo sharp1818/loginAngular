@@ -1,1 +1,4 @@
-<table-pagination [data]="userItems" *ngIf="userItems.length>0"></table-pagination>
+<div class="userListContainer">
+    <mat-list-item class="title">Lista de usuarios</mat-list-item>
+    <table-pagination [data]="userItems" *ngIf="userItems.length>0"></table-pagination>
+</div>

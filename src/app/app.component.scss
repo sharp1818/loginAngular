@@ -1,6 +1,9 @@
-.outlet-container{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: red;
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.outlet-container {
+    padding: 40px;
 }
