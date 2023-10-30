@@ -1,9 +1,11 @@
 <mat-toolbar>
-    <span>FinMarkets</span>
-    <span class="spacer"></span>
-    <a mat-fab extended color="primary" routerLink="./login" *ngIf="!this.isAuthenticate">
-        <mat-icon>account_circle</mat-icon>
-        Ingresar
-    </a>
-    <app-menu *ngIf="this.isAuthenticate"></app-menu>
+    <div class="centerNav">
+        <span>FinMarkets</span>
+        <span class="spacer"></span>
+        <a mat-fab extended color="primary" routerLink="./login" *ngIf="!this.isAuthenticate">
+            <mat-icon>account_circle</mat-icon>
+            Ingresar
+        </a>
+        <app-menu *ngIf="this.isAuthenticate"></app-menu>
+    </div>
 </mat-toolbar>
