@@ -17,7 +17,7 @@
             <mat-label class="form-label">Password</mat-label>
             <input matInput type="password" formControlName="password">
         </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Crear usuario</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!formReg.valid">Crear usuario</button>
     </form>
     <button mat-stroked-button (click)="navigateToLogin()">Volver al login</button>
 </div>

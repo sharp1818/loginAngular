@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { BottomRightModalComponent } from 'src/app/component/bottom-right-modal/bottom-right-modal.component';
@@ -16,15 +16,16 @@ export class NewUserComponent implements OnInit {
   title: string = 'Algo ocurrio!!';
   message: string = '';
   constructor(
+    private fb: FormBuilder,
     private router: Router,
     private userService: AuthenticationService,
     public dialog: MatDialog
   ) {
-    this.formReg = new FormGroup({
-      name: new FormControl(),
-      rut: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl()
+    this.formReg = this.fb.group({
+      name: ['', Validators.required],
+      rut: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     })
 
   }
