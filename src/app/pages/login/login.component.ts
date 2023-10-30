@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { BottomRightModalComponent } from 'src/app/component/bottom-right-modal/bottom-right-modal.component';
 import { AuthenticationService } from 'src/app/services/authentication.services';
 
 @Component({
@@ -10,9 +12,12 @@ import { AuthenticationService } from 'src/app/services/authentication.services'
 })
 export class LoginComponent implements OnInit {
   formLogin: FormGroup;
+  title: string = 'Algo ocurrio!!';
+  message: string = '';
   constructor(
     private router: Router,
     private userService: AuthenticationService,
+    public dialog: MatDialog
   ) {
     this.formLogin = new FormGroup({
       email: new FormControl(),
@@ -28,9 +33,19 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/userList']);
       })
       .catch(error => {
-        //FALTA MANEJAR EL ERROR
-        console.log(error)
+        this.openDialog(error.code)
       });
+  }
+
+  openDialog(message: string): void {
+    const dialogRef = this.dialog.open(BottomRightModalComponent, {
+      data: {title: this.title, message: message},
+      maxWidth: '500px',
+      position: { right: '20px', bottom: '20px' },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   navigateToNewUserView() {

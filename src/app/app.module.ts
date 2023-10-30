@@ -20,6 +20,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import { BottomRightModalComponent } from './component/bottom-right-modal/bottom-right-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import {MatListModule} from '@angular/material/list';
   imports: [
     NavComponent,
     FooterComponent,
+    BottomRightModalComponent,
     TablePaginationComponent,
     BrowserModule,
     AppRoutingModule,
@@ -38,6 +41,7 @@ import {MatListModule} from '@angular/material/list';
     MatInputModule,
     MatButtonModule,
     MatListModule,
+    MatDialogModule,
     provideFirebaseApp(() => initializeApp({
       "projectId": "finmarkets-login",
       "appId": "1:23433445492:web:711cad9e498fa1e4291121", 
